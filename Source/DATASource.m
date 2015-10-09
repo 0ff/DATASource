@@ -434,6 +434,9 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
                 } break;
 
             case NSFetchedResultsChangeMove: {
+                if ([indexPath isEqual:newIndexPath]) {
+                    break;
+                }
                 [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                                       withRowAnimation:UITableViewRowAnimationAutomatic];
                 [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
